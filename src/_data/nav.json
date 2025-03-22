@@ -1,0 +1,16 @@
+{
+    "items": [
+	{
+	    "text": "Offerings",
+	    "url": "/offerings/"
+	},
+	{
+	    "text": "Studio Work",
+	    "url": "/studio-work/"
+	},
+	{
+	    "text": "About",
+	    "url": "/about/"
+	}
+    ]
+}

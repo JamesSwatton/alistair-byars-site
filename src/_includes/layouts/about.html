@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+{% include "partials/header.html" %}
+<article>
+  <div>
+    <h3>Biography</h3>
+    {{ content | safe }}
+  </div>
+
+  <div>
+    <h3>Education</h3>
+    {% for item in education %}
+    <p>{{ item.school }}<br>{{ item.qualification }}<br>{{ item.timePeriod }}</p>
+    {% endfor %}
+  </div>
+
+  <div>
+    <h3>Exhibitions</h3>
+    {% for item in exhibitions %}
+    <p>{{ item.year }} / {{ item.title }} - {{ item.location }} - {{ item.type }}</p>
+    {% endfor %}
+  </div>
+
+  <div>
+    <h3>Work</h3>
+    {% for item in work %}
+    <p>{{ item.timePeriod }} / {{ item.employer }}, {{ item.role }}</p>
+    {% endfor %}
+  </div>
+
+  <div>
+    <h3>Press</h3>
+    {% for item in press %}
+    <p>{{ item.year }} / {{ item.publication }}, {{ item.title }}</p>
+    {% endfor %}
+  </div>
+  
+  <div>
+    <h3>Contact</h3>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+</article>
+{% endblock %}

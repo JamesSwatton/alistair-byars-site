@@ -1,7 +1,4 @@
 {% extends "layouts/base.html"%}
 {% block content %}
-<article>
-  <h1>{{ title }}</h1>
-  {{ content | safe }}
-</article>
+{% include "partials/header.html" %}
 {% endblock %}
