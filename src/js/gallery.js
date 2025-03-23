@@ -1,6 +1,7 @@
 const wrapper = document.querySelector(".gallery-wrapper");
 const container = document.querySelector("#gallery-container");
 const track = document.querySelector("#track");
+const images = document.querySelectorAll(".track-img");
 const prevBtn = document.querySelector("#prev");
 const nextBtn = document.querySelector('#next');
 const galleryNavBtns = document.querySelectorAll('.gallery-nav-btn');
@@ -12,11 +13,13 @@ const imageCredit = document.querySelector(".img-credit");
 const worksListItems = document.querySelectorAll(".works-list-item");
 
 let currentIndex = 0;
+let previousIndex = 0;
 let numOfImages = 0;
 let widths = []; // Stores widths of images
 let shift = 0; // Stores the current translateX value
 let gap = 6;
 
+console.log(images);
 
 document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener("resize", updateWidth);
@@ -24,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', function() {
   // Get widths from images once full page has loaded.
-  const images = document.querySelectorAll('img');
+  const images = document.querySelectorAll('.track-img');
   images.forEach(image => {
     widths.push(image.offsetWidth);
   });
@@ -58,6 +61,7 @@ worksListItems.forEach((item) => {
 
 prevBtn.addEventListener('click', (e) => {
   if (currentIndex > 0) {
+    previousIndex = currentIndex;
     currentIndex--;
     updatePosition();
     updateImgInfo();
@@ -73,6 +77,7 @@ prevBtn.addEventListener('click', (e) => {
 
 nextBtn.addEventListener('click', (e) => {
   if (currentIndex < numOfImages - 1) {
+    previousIndex = currentIndex;
     currentIndex++;
     updatePosition();
     updateImgInfo();
@@ -103,6 +108,25 @@ function updatePosition() {
   if (widths.length === 0) return;
 
   shift = -widths.slice(0, currentIndex).reduce((acc, w) => acc + w + gap, 0);
+
+  if (fadeImages) {
+    // Remove fade-out class for all images before udating position
+    images.forEach((img) => {
+      img.style.transition = "opacity 1.2s ease";
+      img.classList.remove('fade-out');
+    });
+
+    // BUG!: if navigating back to the previous image fade is still applied
+    // from 0 to 1
+    
+    // Add fade-out to the current img as it transitions out of view
+    images[previousIndex].classList.add('fade-out');    
+  } else {
+    images.forEach((img) => {
+      img.classList.remove('fade-out');
+      img.style.transition = "opacity 0s ease";
+      img.style.opactiy = "1"});
+  }
 
   // Apply the same transition timing to the width change
   container.style.transition = "width 1s ease-in-out";

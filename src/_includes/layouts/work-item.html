@@ -2,7 +2,6 @@
 {% set works = collections[page.url | getUrlPartial(0)] %}
 
 {% block content %}
-{{ title }}
 {% include "partials/works-list.html" %}
 {% include "partials/gallery.html" %}
 {% endblock %}

@@ -19,15 +19,17 @@
 }
 
 #track {
+  height: 100%;
   display: flex;
   transition: transform 1s ease-in-out;
   gap: 6px;
 }
 
-#track img {
-  height: 500px;
+.track-img {
+  height: 100%;
   width: auto;
   display: block;
+  transition: opacity 1.2s ease-in-out;
 }
 
 #gallery-nav-container {
@@ -56,4 +58,8 @@
   & .img-credit {
     font-style: italic;
   }
+}
+
+.fade-out {
+  opacity: 0.2;
 }
