@@ -1,0 +1,22 @@
+<div id="gallery-container">
+  <div id="track">
+    {% for image in images %}
+    <img alt="" src="{{ image.path }}"/>
+    {% endfor %}    
+  </div>
+
+  <div id="gallery-nav-container" style="width: 0px">
+    <button id="prev"></button>
+    <button id="next"></button>
+  </div>
+
+  <div class="img-info">
+    <div class="counter"></div>
+    {% for image in images %}
+    <!-- TODO: use data attribute to turn credit on/off -->
+    <div class="image-credit">{{ image.credit }}</div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="../../js/gallery.js"></script>
