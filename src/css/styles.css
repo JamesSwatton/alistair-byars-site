@@ -1,3 +1,8 @@
+.gallery-wrapper {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
 #gallery-container {
   overflow: hidden;
   position: relative;
@@ -34,5 +39,16 @@
   }
   & button:disabled {
     cursor: default
+  }
+}
+
+.img-info {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+  & .img-credit {
+    font-style: italic;
   }
 }

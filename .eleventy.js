@@ -18,7 +18,12 @@ module.exports = (config) => {
 
   // Filters
   config.addFilter("getUrlPartial", getUrlPartial);
-  config.addFilter("getValueFromKey", getValueFromKey);
+  config.addFilter("getValueFromKey", (data, key) => {
+    return data.map((item) => item[key]);
+  });
+  config.addFilter("jsonify", function(data) {
+    return JSON.stringify(data);
+  });
 
   return {
     markdownTemplateEngine: "njk",

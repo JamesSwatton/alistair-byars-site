@@ -1,22 +1,24 @@
-<div id="gallery-container">
-  <div id="track">
-    {% for image in images %}
-    <img alt="" src="{{ image.path }}"/>
-    {% endfor %}    
-  </div>
+<div class="gallery-wrapper">
+  <div id="gallery-container">
+    <div id="track">
+      {% for image in images %}
+      <img alt="" src="{{ image.path }}"/>
+      {% endfor %}    
+    </div>
 
-  <div id="gallery-nav-container" style="width: 0px">
-    <button id="prev"></button>
-    <button id="next"></button>
+    <div id="gallery-nav-container">
+      <button id="prev" class="gallery-nav-btn"></button>
+      <button id="next" class="gallery-nav-btn"></button>
+    </div>
   </div>
 
   <div class="img-info">
-    <div class="counter"></div>
-    {% for image in images %}
-    <!-- TODO: use data attribute to turn credit on/off -->
-    <div class="image-credit">{{ image.credit }}</div>
-    {% endfor %}
-  </div>
+    <div class="img-counter"></div>
+    <div class="img-credit"></div>
+  </div>  
 </div>
 
+<script>
+  let imageCredits = {{ images | getValueFromKey('credit') | jsonify | safe }}
+</script>
 <script src="../../js/gallery.js"></script>
