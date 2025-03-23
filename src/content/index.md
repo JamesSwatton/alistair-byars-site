@@ -1,5 +1,4 @@
 ---
-title: "Hello, world!"
+title: "Alistair Byars"
 layout: "layouts/home.html"
 ---
-Welcome to my cool website!
