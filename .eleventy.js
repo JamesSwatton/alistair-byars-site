@@ -6,6 +6,7 @@ module.exports = (config) => {
   config.addPassthroughCopy({ "./src/images": "images" });
   config.addPassthroughCopy({ "./src/js/": "js" });
   config.addPassthroughCopy({ "./src/css/": "css" });
+  config.addPassthroughCopy({ "./src/assets/": "assets"});
 
   // Collections
   config.addCollection("offerings", (collection) => {

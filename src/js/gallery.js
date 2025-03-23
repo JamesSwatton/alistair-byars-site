@@ -45,6 +45,7 @@ window.addEventListener('load', function() {
   console.log(worksListItems);
 });
 
+// Trigger gallery fade out before loading linked page
 worksListItems.forEach((item) => {
   item.addEventListener('click', (e) => {
     e.preventDefault();

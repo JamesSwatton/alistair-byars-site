@@ -1,0 +1,26 @@
+<div style="
+	    position: absolute;
+	    top: 0;
+	    right: 0;">
+  <input id="logo-slider" name="logo-size" type="range" value="70" min="10" max="200" step="1"/>
+  <div id="slider-value-display">logo height: </div>  
+</div>
+
+<script>
+  const logo = document.querySelector('#home-link');
+  const slider = document.querySelector('#logo-slider');
+  const display = document.querySelector('#slider-value-display');
+
+  // display.innerText = `Monogram height: ${slider.value}px`
+  slider.addEventListener("input", (e) => {
+    let value = e.target.value;
+    logo.style.height = `${value}px`;
+    display.innerText = `Monogram height: ${value}px`;
+  })
+
+  window.addEventListener('load', () => {
+    console.log(logo);
+    display.innerText = `Monogram height: ${logo.offsetHeight}px`;
+    slider.value = logo.offsetHeigth;
+  })
+</script>
