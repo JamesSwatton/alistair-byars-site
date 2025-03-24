@@ -11,28 +11,33 @@
 <script>
 
   window.addEventListener('load', () => {
-    // const contentWrapper = document.querySelector('.content-wrapper');
-    // const worksListWrapper = document.querySelector('.works-list-wrapper');
-    // const navItems = document.querySelectorAll('.nav-item');
-    // console.log(navItems.length);
+    const navItems = document.querySelectorAll('.nav-item');
+    const fadePages = document.querySelectorAll('.page-fade');
 
-    // contentWrapper.style.opacity = 1;
-    // contentWrapper.style.bottom = "0px";
-
-    //   navItems.forEach((item) => {
-    // 	item.addEventListener('click', (e) => {
-    // 	  if (window.location.href !== 'http://localhost:8080/') {
-    // 	    e.preventDefault();
-    // 	    contentWrapper.style.opacity = 0;
-    // 	    if (worksListWrapper) worksListWrapper.style.opacity = 0;
-    // 	    setTimeout(() => {
-    // 	      window.location.href = item.href;
-    // 	    }, 700)	    
-    // 	  } else {
-    // 	    window.location.href = item.href;
-    // 	  }
-    // 	})
-    //   })      
+    fadePages.forEach((item) => {
+      if (item.classList.contains('page-fade-in-out')) {
+	item.classList.add('trig-fade-in');	
+      }
+    })
+    
+    navItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+	if (window.location.href !== 'http://localhost:8080/') {
+	  e.preventDefault();
+	  fadePages.forEach((item) => {
+	    if (item.classList.contains('page-fade-in-out')) {
+	      item.classList.remove('trig-fade-in');  
+	    } else if (item.classList.contains('page-fade-out')) {
+	      item.classList.add('trig-fade-out');
+	    }
+	    
+	  })
+	  setTimeout(() => {
+	    window.location.href = item.href;
+	  }, 1000);	  
+	}
+      })
+    })
   })
 
 </script>

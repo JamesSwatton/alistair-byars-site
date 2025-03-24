@@ -52,8 +52,8 @@ window.addEventListener('load', function() {
   images.forEach(image => {
     widths.push(image.offsetWidth);
   });
+  
   updateWidth();
-  updateImgInfo();
   
   // Remove gallery navigation if only one image.
   if (numOfImages === 1) {
@@ -63,6 +63,7 @@ window.addEventListener('load', function() {
   
   // Fade in image credits after gallery has transitioned 
   setTimeout(() => {
+    updateImgInfo();
     imgInfo.style.opacity = "1";
   }, 1000);
 });
