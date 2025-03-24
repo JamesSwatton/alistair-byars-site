@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/assets/ab-icon-dark.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link href="/css/reset.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <title>The Glassblower&#39;s Vessels</title>
+  </head>
+  <body>
+    <main>
+      <a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>
+      <header>
+  <nav>
+    <ul class="nav-list">
+      
+      <li><a href="/offerings/" class="nav-item">Offerings</a></li>
+      
+      <li><a href="/studio-work/" class="nav-item">Studio Work</a></li>
+      
+      <li><a href="/about/" class="nav-item">About</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+<script>
+
+  window.addEventListener('load', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    const fadePages = document.querySelectorAll('.page-fade');
+
+    fadePages.forEach((item) => {
+      if (item.classList.contains('page-fade-in-out')) {
+	item.classList.add('trig-fade-in');	
+      }
+    })
+    
+    navItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+	if (window.location.href !== 'http://localhost:8080/') {
+	  e.preventDefault();
+	  fadePages.forEach((item) => {
+	    if (item.classList.contains('page-fade-in-out')) {
+	      item.classList.remove('trig-fade-in');  
+	    } else if (item.classList.contains('page-fade-out')) {
+	      item.classList.add('trig-fade-out');
+	    }
+	    
+	  })
+	  setTimeout(() => {
+	    window.location.href = item.href;
+	  }, 1000);	  
+	}
+      })
+    })
+  })
+
+</script>
+
+      
+<div class="works-list-wrapper page-fade page-fade-out">
+  <ul class="works-list">
+  
+  <li><a href="/studio-work/notebook/" class="works-list-item">Notebook</a></li>
+  
+  <li><a href="/studio-work/rush-candles/" class="works-list-item">Rush Candles</a></li>
+  
+  <li><a href="/studio-work/the-carpenters-tables/" class="works-list-item">The Carpenter&#39;s Tables</a></li>
+  
+  <li><a href="/studio-work/the-glassblowers-vessels/" class="works-list-item">The Glassblower&#39;s Vessels</a></li>
+  
+  <li><a href="/studio-work/the-stonemasons-objects/" class="works-list-item">The Stonemason&#39;s Objects</a></li>
+  
+</ul>
+
+</div>
+
+      
+<div class="gallery-wrapper page-fade page-fade-out">
+    <div id="gallery-container">
+    <div id="track">
+      
+      <img alt="" src="/images/The Glassblower&#39;s Vessels_01_Gabriela Silveira.jpg" class="track-img"/>
+      
+      <img alt="" src="/images/The Glassblower&#39;s Vessels_02_Gabriela Silveira.jpg" class="track-img"/>
+      
+      <img alt="" src="/images/The Glassblower&#39;s Vessels_03_Paula Szturc.jpg" class="track-img"/>
+      
+      <img alt="" src="/images/The Glassblower&#39;s Vessels_04_Richard Gaston.jpg" class="track-img"/>
+          
+    </div>
+
+    <div id="gallery-nav-container">
+      <button id="prev" class="gallery-nav-btn"></button>
+      <button id="next" class="gallery-nav-btn"></button>
+    </div>
+  </div>
+
+  <div class="img-info">
+    <div class="img-counter"></div>
+    <div class="img-credit"></div>
+  </div>
+</div>
+
+<script>
+  let imageCredits = ["Gabriela Silveira","Gabriela Silveira","Paula Szturc","Richard Gaston"]
+</script>
+<script src="/js/gallery.js"></script>
+
+
+      
+      
+      <div style="
+	    position: absolute;
+	    top: 0;
+	    right: 0;">
+  <input id="logo-slider" name="logo-size" type="range" value="70" min="10" max="200" step="1"/>
+  <div id="slider-value-display">logo height: </div>
+
+  <input type="checkbox" value="" name="fade-images" id="fade-check" autocomplete="off"/>
+  <label for="fade-images">Fade images</label>
+</div>
+
+<script>
+  const logo = document.querySelector('#home-link');
+  const slider = document.querySelector('#logo-slider');
+  const display = document.querySelector('#slider-value-display');
+  const fadeToggle = document.querySelector('#fade-check');
+  let fadeImages;
+  let logoSize;
+
+  // display.innerText = `Monogram height: ${slider.value}px`
+  slider.addEventListener("input", (e) => {
+    let value = e.target.value;
+    logo.style.height = `${value}px`;
+    display.innerText = `Monogram height: ${value}px`;
+    localStorage.setItem('logo-size', value);
+  })
+
+  slider.addEventListener("change", () => {
+    location.reload();
+  })
+
+  fadeToggle.addEventListener('click', (e) => {
+    localStorage.setItem('fade-images', e.target.checked);;
+    fadeImages = e.target.checked;
+  })
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (logoSize = localStorage.getItem('logo-size')) {
+      logo.style.height = `${logoSize}px`;
+      slider.value = logoSize;
+    display.innerText = `Monogram height: ${logoSize}px`;
+    } else {
+      logo.style.height = `${slider.value}px`;
+      display.innerText = `{logoSize}px`;
+    }
+
+    if (fadeImages = localStorage.getItem('fade-images')) {
+      fadeToggle.checked = fadeImages == "true" ? true : false;
+      console.log(fadeToggle.checked);
+      fadeImages = fadeImages == "true" ? true : false;
+      console.log(fadeImages);      
+    } else {
+      fadeImages = false;
+    }
+  })
+</script>
+
+
+      </div>
+    </main>
+  </body>
+</html>

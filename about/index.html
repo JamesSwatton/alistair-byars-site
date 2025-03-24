@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/assets/ab-icon-dark.svg"
+      type="image/x-icon"
+      media="(prefers-color-scheme: light)"
+    />
+    <link href="/css/reset.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <title>About</title>
+  </head>
+  <body>
+    <main>
+      <a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>
+      <header>
+  <nav>
+    <ul class="nav-list">
+      
+      <li><a href="/offerings/" class="nav-item">Offerings</a></li>
+      
+      <li><a href="/studio-work/" class="nav-item">Studio Work</a></li>
+      
+      <li><a href="/about/" class="nav-item">About</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+<script>
+
+  window.addEventListener('load', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    const fadePages = document.querySelectorAll('.page-fade');
+
+    fadePages.forEach((item) => {
+      if (item.classList.contains('page-fade-in-out')) {
+	item.classList.add('trig-fade-in');	
+      }
+    })
+    
+    navItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+	if (window.location.href !== 'http://localhost:8080/') {
+	  e.preventDefault();
+	  fadePages.forEach((item) => {
+	    if (item.classList.contains('page-fade-in-out')) {
+	      item.classList.remove('trig-fade-in');  
+	    } else if (item.classList.contains('page-fade-out')) {
+	      item.classList.add('trig-fade-out');
+	    }
+	    
+	  })
+	  setTimeout(() => {
+	    window.location.href = item.href;
+	  }, 1000);	  
+	}
+      })
+    })
+  })
+
+</script>
+
+      
+      
+      
+  <article class="about-wrapper page-fade page-fade-in-out">
+    <div>
+      <h1>Biography</h1>
+      <p>Alistair is a sculptor &amp; furniture maker. Above all else, the driving inspiration for Alistair’s work is his love for music and soundscapes. Sound acts as a catalyst for the configuration of abstract environments in the mind. Over time, these environments set the scene in which the shapes and volumes of his work are realised - almost as if props from a film that no one else can see.\nAlistair’s work often includes hand applied materials/finishes, that show the markings of a maker and document a labour of love, across many months. Texture is also a key ingredient - rough/smooth, natural/artificial - that invites the onlooker in, to study the work with both eye and hand.\nBorn in 1997, Alistair works and lives between Edinburgh and Glasgow, the city he grew up in. He completed his Master’s, with First Class Honours, in Product Design Engineering from Glasgow University &amp; School of Art in 2020. Alistair has previously interned with London based design studio Faye Toogood and is currently working with Groves-Raines Architects Studios, Edinburgh.</p>
+
+    </div>
+
+    <div>
+      <div>
+	<h1>Education</h1>
+	
+	<p>Glasgow University &amp; School of Art<br>Product Design Engineering MEng (First Class Honours)<br>2015 - 2020</p>
+	
+      </div>      
+
+      <div>
+	<h1>Exhibitions</h1>
+	
+	<p>2021 / &quot;Offerings&quot; - Custom Lane (Edinburgh) - Solo Exhibition</p>
+	
+	<p>2021 /  - Arusha Gallery (Edinburgh) - Group Show</p>
+	
+      </div>
+      
+      <div>
+	<h1>Work</h1>
+	
+	<p>2021 - Present / Groves-Raines Architects Studios, Product Design Engineer</p>
+	
+	<p>2019 / Studio Toogood, Intern</p>
+	
+	<p>2017 - Present / Geo Owen, Collaborator</p>
+	
+      </div>
+    </div>
+
+    <div>
+      <div>
+	<h1>Press</h1>
+	
+	<p>2023 / The Financial Times, Alba Stool featured in &#92;&quot;The house that Blue Mountain School built&#92;&quot;</p>
+	
+	<p>2022 / Slancha, Funiture Inspired by Sound with Alistair Byars</p>
+	
+	<p>2022 / Through Objects, Monad Wall Hangings</p>
+	
+	<p>2022 / Through Objects, Moonlight Low Table</p>
+	
+	<p>2021 / Custom Lane, Alistair Byars | Offerings</p>
+	
+	<p>2020 / Cluster London, Craft in All Corners of the World</p>
+	
+      </div>
+      
+      <div>
+	<h1>Contact</h1>
+	<a href="mailto:ally.byars@hotmail.co.uk" class="visible">ally.byars@hotmail.co.uk</a>
+      </div>      
+    </div>
+  </article>
+
+
+      
+      <div style="
+	    position: absolute;
+	    top: 0;
+	    right: 0;">
+  <input id="logo-slider" name="logo-size" type="range" value="70" min="10" max="200" step="1"/>
+  <div id="slider-value-display">logo height: </div>
+
+  <input type="checkbox" value="" name="fade-images" id="fade-check" autocomplete="off"/>
+  <label for="fade-images">Fade images</label>
+</div>
+
+<script>
+  const logo = document.querySelector('#home-link');
+  const slider = document.querySelector('#logo-slider');
+  const display = document.querySelector('#slider-value-display');
+  const fadeToggle = document.querySelector('#fade-check');
+  let fadeImages;
+  let logoSize;
+
+  // display.innerText = `Monogram height: ${slider.value}px`
+  slider.addEventListener("input", (e) => {
+    let value = e.target.value;
+    logo.style.height = `${value}px`;
+    display.innerText = `Monogram height: ${value}px`;
+    localStorage.setItem('logo-size', value);
+  })
+
+  slider.addEventListener("change", () => {
+    location.reload();
+  })
+
+  fadeToggle.addEventListener('click', (e) => {
+    localStorage.setItem('fade-images', e.target.checked);;
+    fadeImages = e.target.checked;
+  })
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (logoSize = localStorage.getItem('logo-size')) {
+      logo.style.height = `${logoSize}px`;
+      slider.value = logoSize;
+    display.innerText = `Monogram height: ${logoSize}px`;
+    } else {
+      logo.style.height = `${slider.value}px`;
+      display.innerText = `{logoSize}px`;
+    }
+
+    if (fadeImages = localStorage.getItem('fade-images')) {
+      fadeToggle.checked = fadeImages == "true" ? true : false;
+      console.log(fadeToggle.checked);
+      fadeImages = fadeImages == "true" ? true : false;
+      console.log(fadeImages);      
+    } else {
+      fadeImages = false;
+    }
+  })
+</script>
+
+
+      </div>
+    </main>
+  </body>
+</html>
