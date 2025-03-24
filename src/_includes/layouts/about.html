@@ -1,43 +1,48 @@
 {% extends "layouts/base.html" %}
 
-{% block content %}
-<article>
-  <div>
-    <h3>Biography</h3>
-    {{ content | safe }}
-  </div>
+{% block about %}
+  <article class="about-wrapper">
+    <div>
+      <h1>Biography</h1>
+      {{ content | safe }}
+    </div>
 
-  <div>
-    <h3>Education</h3>
-    {% for item in education %}
-    <p>{{ item.school }}<br>{{ item.qualification }}<br>{{ item.timePeriod }}</p>
-    {% endfor %}
-  </div>
+    <div>
+      <div>
+	<h1>Education</h1>
+	{% for item in education %}
+	<p>{{ item.school }}<br>{{ item.qualification }}<br>{{ item.timePeriod }}</p>
+	{% endfor %}
+      </div>      
 
-  <div>
-    <h3>Exhibitions</h3>
-    {% for item in exhibitions %}
-    <p>{{ item.year }} / {{ item.title }} - {{ item.location }} - {{ item.type }}</p>
-    {% endfor %}
-  </div>
+      <div>
+	<h1>Exhibitions</h1>
+	{% for item in exhibitions %}
+	<p>{{ item.year }} / {{ item.title }} - {{ item.location }} - {{ item.type }}</p>
+	{% endfor %}
+      </div>
+      
+      <div>
+	<h1>Work</h1>
+	{% for item in work %}
+	<p>{{ item.timePeriod }} / {{ item.employer }}, {{ item.role }}</p>
+	{% endfor %}
+      </div>
+    </div>
 
-  <div>
-    <h3>Work</h3>
-    {% for item in work %}
-    <p>{{ item.timePeriod }} / {{ item.employer }}, {{ item.role }}</p>
-    {% endfor %}
-  </div>
+    <div>
+      <div>
+	<h1>Press</h1>
+	{% for item in press %}
+	<p>{{ item.year }} / {{ item.publication }}, {{ item.title }}</p>
+	{% endfor %}
+      </div>
+      
+      <div>
+	<h1>Contact</h1>
+	<a href="mailto:{{ site.email }}" class="visible">{{ site.email }}</a>
+      </div>      
+    </div>
+  </article>
 
-  <div>
-    <h3>Press</h3>
-    {% for item in press %}
-    <p>{{ item.year }} / {{ item.publication }}, {{ item.title }}</p>
-    {% endfor %}
-  </div>
-  
-  <div>
-    <h3>Contact</h3>
-    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-  </div>
-</article>
 {% endblock %}

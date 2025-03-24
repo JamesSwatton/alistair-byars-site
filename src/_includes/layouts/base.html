@@ -8,9 +8,16 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    {% include "partials/header.html" %}
-    <!-- Test slider for logo sizing -->
-    {% include "partials/logo-slider.html" %}
-    {% block content %}{% endblock %}
+    <main>
+      <a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>
+      {% include "partials/header.html" %}
+      {% block worksList %}{% endblock %}
+      {% block gallery %}{% endblock %}
+      {% block about %}{% endblock %}
+      
+      {% include "partials/client-options-interface.html" %}
+
+      </div>
+    </main>
   </body>
 </html>

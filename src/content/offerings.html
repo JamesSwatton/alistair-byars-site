@@ -2,6 +2,8 @@
 {% set works = collections.offerings %}
 
 
-{% block content %}
-{% include "partials/works-list.html" %}
+{% block worksList %}
+<div class="works-list-wrapper">
+  {% include "partials/works-list.html" %}  
+</div>
 {% endblock %}

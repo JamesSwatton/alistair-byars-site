@@ -1,7 +1,6 @@
 <header>
   <nav>
-    <a href="/" class="nav-item"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>
-    <ul>
+    <ul class="nav-list">
       {% for item in nav.items %}
       <li><a href="{{ item.url }}" class="nav-item">{{ item.text }}</a></li>
       {% endfor %}
@@ -10,29 +9,30 @@
 </header>
 
 <script>
+
   window.addEventListener('load', () => {
-    const contentWrapper = document.querySelector('.content-wrapper');
-    const worksListWrapper = document.querySelector('.works-list-wrapper');
-    const navItems = document.querySelectorAll('.nav-item');
-    console.log(navItems.length);
+    // const contentWrapper = document.querySelector('.content-wrapper');
+    // const worksListWrapper = document.querySelector('.works-list-wrapper');
+    // const navItems = document.querySelectorAll('.nav-item');
+    // console.log(navItems.length);
 
-    contentWrapper.style.opacity = 1;
-    contentWrapper.style.bottom = "0px";
+    // contentWrapper.style.opacity = 1;
+    // contentWrapper.style.bottom = "0px";
 
-      navItems.forEach((item) => {
-	item.addEventListener('click', (e) => {
-	  if (window.location.href !== 'http://localhost:8080/') {
-	    e.preventDefault();
-	    contentWrapper.style.opacity = 0;
-	    worksListWrapper.style.opacity = 0;
-	    setTimeout(() => {
-	      window.location.href = item.href;
-	    }, 700)	    
-	  } else {
-	    window.location.href = item.href;
-	  }
-	})
-      })      
+    //   navItems.forEach((item) => {
+    // 	item.addEventListener('click', (e) => {
+    // 	  if (window.location.href !== 'http://localhost:8080/') {
+    // 	    e.preventDefault();
+    // 	    contentWrapper.style.opacity = 0;
+    // 	    if (worksListWrapper) worksListWrapper.style.opacity = 0;
+    // 	    setTimeout(() => {
+    // 	      window.location.href = item.href;
+    // 	    }, 700)	    
+    // 	  } else {
+    // 	    window.location.href = item.href;
+    // 	  }
+    // 	})
+    //   })      
   })
 
 </script>

@@ -1,7 +1,13 @@
 {% extends "layouts/base.html" %}
 {% set works = collections[page.url | getUrlPartial(0)] %}
 
-{% block content %}
-{% include "partials/works-list.html" %}
+
+{% block worksList %}
+<div class="works-list-wrapper">
+  {% include "partials/works-list.html" %}
+</div>
+{% endblock %}  
+
+{% block gallery %}
 {% include "partials/gallery.html" %}
 {% endblock %}

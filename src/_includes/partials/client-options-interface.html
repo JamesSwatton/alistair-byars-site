@@ -25,6 +25,10 @@
     localStorage.setItem('logo-size', value);
   })
 
+  slider.addEventListener("change", () => {
+    location.reload();
+  })
+
   fadeToggle.addEventListener('click', (e) => {
     localStorage.setItem('fade-images', e.target.checked);;
     fadeImages = e.target.checked;

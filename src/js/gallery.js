@@ -19,7 +19,28 @@ let widths = []; // Stores widths of images
 let shift = 0; // Stores the current translateX value
 let gap = 6;
 
-console.log(images);
+let resizing = false;
+
+// TODO: fix gallery resize issure for now reload page to
+// get correct widths and location
+
+window.onresize = () => {
+  window.location.reload();
+  resizing = true;
+  // container.style.transition = "none";
+  // track.style.transition = "none";
+  // console.log('image: ', images[currentIndex]);
+  // track.innerHTML = "";
+  // track.appendChild(images[currentIndex].cloneNode(true));
+  // console.log(container.clientWidth);
+  // setTimeout(() => {
+  //   track.innerHTML = "";
+  //   images.forEach((img) => {
+  //     track.appendChild(img.cloneNode(true));
+  //   })
+    
+  // },50)
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener("resize", updateWidth);
@@ -44,8 +65,6 @@ window.addEventListener('load', function() {
   setTimeout(() => {
     imgInfo.style.opacity = "1";
   }, 1000);
-
-  console.log(worksListItems);
 });
 
 // Trigger gallery fade out before loading linked page
@@ -108,6 +127,7 @@ function updatePosition() {
   if (widths.length === 0) return;
 
   shift = -widths.slice(0, currentIndex).reduce((acc, w) => acc + w + gap, 0);
+  console.log("shift: ", shift);
 
   if (fadeImages) {
     // Remove fade-out class for all images before udating position
