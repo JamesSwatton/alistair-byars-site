@@ -36,7 +36,7 @@ export default function (config) {
     dir: {
       input: "src/content",
       output: "dist",
-      pathprefix: "/alistair-byars-site/",
+      pathPrefix: "/alistair-byars-site/",
       includes: "../_includes",
       data: "../_data",
     },
