@@ -14,7 +14,6 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
-      	if: github.ref == 'refs/heads/main'
         with:
           fetch-depth: 0
 
