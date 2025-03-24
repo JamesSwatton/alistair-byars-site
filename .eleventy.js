@@ -1,10 +1,8 @@
 import getUrlPartial from "./src/_config/filters/get-url-part.js";
-import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (config) {
   // Plugins
-  config.addPlugin(EleventyHtmlBasePlugin);
-  
+
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy({ "./src/images": "images" });
   config.addPassthroughCopy({ "./src/js/": "js" });
@@ -36,6 +34,7 @@ export default function (config) {
     dir: {
       input: "src/content",
       output: "dist",
+      pathPrefix: "/alistair-byars-site/",
       includes: "../_includes",
       data: "../_data",
     },
