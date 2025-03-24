@@ -2,10 +2,10 @@
 	    position: absolute;
 	    top: 0;
 	    right: 0;">
-  <input id="logo-slider" name="logo-size" type="range" value="70" min="10" max="200" step="1" autocomplete="on"/>
+  <input id="logo-slider" name="logo-size" type="range" value="70" min="10" max="200" step="1"/>
   <div id="slider-value-display">logo height: </div>
 
-  <input type="checkbox" value="" name="fade-images" id="fade-check" />
+  <input type="checkbox" value="" name="fade-images" id="fade-check" autocomplete="off"/>
   <label for="fade-images">Fade images</label>
 </div>
 
@@ -14,7 +14,7 @@
   const slider = document.querySelector('#logo-slider');
   const display = document.querySelector('#slider-value-display');
   const fadeToggle = document.querySelector('#fade-check');
-  let fadeImages = false;
+  let fadeImages;
   let logoSize;
 
   // display.innerText = `Monogram height: ${slider.value}px`
@@ -26,13 +26,11 @@
   })
 
   fadeToggle.addEventListener('click', (e) => {
+    localStorage.setItem('fade-images', e.target.checked);;
     fadeImages = e.target.checked;
   })
 
-  window.addEventListener('load', () => {
-    console.log(logo);
-
-    fadeImages = fadeToggle.checked;
+  document.addEventListener('DOMContentLoaded', () => {
     if (logoSize = localStorage.getItem('logo-size')) {
       logo.style.height = `${logoSize}px`;
       slider.value = logoSize;
@@ -40,6 +38,15 @@
     } else {
       logo.style.height = `${slider.value}px`;
       display.innerText = `{logoSize}px`;
+    }
+
+    if (fadeImages = localStorage.getItem('fade-images')) {
+      fadeToggle.checked = fadeImages == "true" ? true : false;
+      console.log(fadeToggle.checked);
+      fadeImages = fadeImages == "true" ? true : false;
+      console.log(fadeImages);      
+    } else {
+      fadeImages = false;
     }
   })
 </script>

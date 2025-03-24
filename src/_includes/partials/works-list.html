@@ -1,7 +1,5 @@
-<div>
-  <ul class="works-list">
-    {% for item in works %}
-    <li><a href="{{ item.url }}" class="works-list-item">{{ item.data.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<ul class="works-list">
+  {% for item in works %}
+  <li><a href="{{ item.url }}" class="works-list-item">{{ item.data.title }}</a></li>
+  {% endfor %}
+</ul>
