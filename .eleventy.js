@@ -33,6 +33,7 @@ module.exports = (config) => {
     dir: {
       input: "src/content",
       output: "dist",
+      pathprefix: "/alistair-byars-site/",
       includes: "../_includes",
       data: "../_data",
     },
