@@ -1,16 +1,17 @@
 {
-    "name": "alistair-byars-site",
-    "version": "1.0.0",
-    "main": ".eleventy.js",
-    "scripts": {
-      "start": "npx eleventy --serve",
-      "build": "npx @11ty/eleventy"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "description": "",
-    "dependencies": {
-	"@11ty/eleventy": "^3.0.0"
-    }
+  "name": "alistair-byars-site",
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
 }
