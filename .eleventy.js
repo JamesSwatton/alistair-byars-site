@@ -3,7 +3,7 @@ import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (config) {
   // Plugins
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+  config.addPlugin(EleventyHtmlBasePlugin);
   
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy({ "./src/images": "images" });
