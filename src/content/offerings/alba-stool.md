@@ -1,5 +1,6 @@
 ---
 title: Alba Stool
+displayOrder: 4
 images:
 - path: "/images/Alba Stool_01_Gabriela Silveira.jpg" 
   credit: Gabriela Silveira

@@ -1,5 +1,6 @@
 ---
 title: The Stonemason's Objects
+displayOrder: 3
 images:
 - path: "/images/The Stonemason's Objects_01_Gabriela Silveira.jpg"
   credit: Gabriela Silveira

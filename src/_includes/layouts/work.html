@@ -1,5 +1,5 @@
 {% extends "layouts/base.html" %}
-{% set works = collections[title | slugify] %}
+{% set works = collections[title | slugify] | sortByDisplayOrder %}
 
 {% block worksList %}
 <div class="works-list-wrapper page-fade page-fade-in-out">

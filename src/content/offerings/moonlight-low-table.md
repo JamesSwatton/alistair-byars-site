@@ -1,5 +1,6 @@
 ---
 title: Moonlight Low Table
+displayOrder: 2
 images: 
 - path: "/images/Moonlight Low Table_01_Gabriela Silveira.jpg" 
   credit: Gabriela Silveira

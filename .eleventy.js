@@ -26,6 +26,10 @@ export default function (config) {
   config.addFilter("jsonify", function(data) {
     return JSON.stringify(data);
   });
+  config.addFilter('sortByDisplayOrder', function(collection) {
+    const sorted = collection.sort((a, b) => (Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1));
+    return sorted;
+});
 
   return {
     markdownTemplateEngine: "njk",
