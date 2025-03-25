@@ -136,7 +136,6 @@ header {
   grid-row-start: 3;
   grid-column-start: 1;
   align-self: end;
-  padding-bottom: 1rem;
 }
 
 .work-description {
