@@ -56,6 +56,10 @@ li.selected {
   color: var(--color-primary);
 }
 
+a, button, body {
+  cursor: none;
+}
+
 body {
   background-color: #fcfcfc;
   padding: 5rem;
@@ -76,6 +80,23 @@ main {
   column-gap: 5rem;
   row-gap: 2rem;
 }
+
+/* Cursor */
+.cursor {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  position: fixed;
+  pointer-events: none; /* Make sure cursor doesn't interfere with clicks */
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease;
+  z-index: 9999; /* Ensure it’s on top */
+  &.hover {
+    background-color: red;
+  }
+}
+
 
 /* Flex stuff */
 .wrapper-flex {
@@ -200,11 +221,11 @@ header {
     height: 100%;
     background: rgba(0, 0, 0, 0);
     border: none;
-    cursor: pointer;
+    /* cursor: pointer; */
   }
-  & button:disabled {
-    cursor: default
-  }
+  /* & button:disabled { */
+  /*   cursor: default */
+  /* } */
 }
 
 .img-info {
