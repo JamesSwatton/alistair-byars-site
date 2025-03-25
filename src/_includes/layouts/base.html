@@ -15,12 +15,18 @@
   </head>
   <body>
     <main>
-      <a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>
+
+      <div>
+	<a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>	
+      </div>
       {% include "partials/header.html" %}
+
       {% block worksList %}{% endblock %}
-      {% block gallery %}{% endblock %}
+
       {% block about %}{% endblock %}
-      
+
+      {% block gallery %}{% endblock %}
+
       {% include "partials/client-options-interface.html" %}
 
       </div>

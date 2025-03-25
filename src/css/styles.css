@@ -11,14 +11,6 @@
 }
 
 /* General */
-body {
-  background-color: #fcfcfc;
-  padding: 5rem;
-  box-sizing: border-box;
-  height: 100vh;
-  max-width: 1720px;
-  margin: 0 auto;
-}
 
 p,
 li,
@@ -64,14 +56,42 @@ li.selected {
   color: var(--color-primary);
 }
 
+body {
+  background-color: #fcfcfc;
+  padding: 5rem;
+  box-sizing: border-box;
+  height: 100vh;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
 main {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   display: grid;
   grid-template-rows: auto auto 1fr;
   grid-template-columns: auto auto;
   column-gap: 5rem;
   row-gap: 2rem;
 }
+
+/* Flex stuff */
+.wrapper-flex {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.wrapper-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
 
 header {
   grid-row-start: 2;
@@ -95,7 +115,7 @@ header {
   grid-row-start: 3;
   grid-column-start: 1;
   align-self: end;
-  /* padding-bottom: 1rem; */
+  padding-bottom: 1rem;
   & > p {
     font-style: italic;
     max-width: 500px;
@@ -126,15 +146,22 @@ header {
     }
   }
 }
+
+.bio > p {
+  margin-bottom: 1rem;
+}
 /* Gallery */
 .gallery-wrapper {
+  /* display: flex; */
+  /* flex-direction: column; */
   height: 100%;
   grid-row: 2 / -1;
   grid-column: 2 / -1;
   justify-self: end;
-  /* display: inline-block; */
+  display: inline-block;
   opacity: 1;
   transition: opacity 0.5s ease;
+  min-height: 0;
 }
 
 #gallery-container {
@@ -142,8 +169,6 @@ header {
   position: relative;
   height: 100%;
   width: 0px;
-  display: flex;
-  /* align-items: center; */
   transition: width 1s ease-in-out;
 }
 
@@ -152,6 +177,7 @@ header {
   display: flex;
   transition: transform 1s ease-in-out;
   gap: 6px;
+  min-height: 0;
 }
 
 .track-img {
@@ -163,6 +189,8 @@ header {
 
 #gallery-nav-container {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -184,9 +212,6 @@ header {
   display: flex;
   justify-content: space-between;
   font-style: italic;
-  /* & .img-credit { */
-  /*   font-style: italic; */
-  /* } */
 }
 
 .fade-out {
