@@ -116,12 +116,13 @@ header {
   grid-column-start: 1;
   align-self: end;
   padding-bottom: 1rem;
-  & > p {
-    font-style: italic;
-    max-width: 500px;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-  }
+}
+
+.work-description {
+  font-style: italic;
+  max-width: 360px;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 #home-link {
