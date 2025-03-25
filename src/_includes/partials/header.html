@@ -9,6 +9,7 @@
 </header>
 
 <script>
+  let pageUrl = {{ page.url | jsonify | safe }};
 
   window.addEventListener('load', () => {
     const navItems = document.querySelectorAll('.nav-item');
@@ -22,7 +23,7 @@
     
     navItems.forEach((item) => {
       item.addEventListener('click', (e) => {
-	if (window.location.href !== 'http://localhost:8080/') {
+	if (pageUrl !== '/') {
 	  e.preventDefault();
 	  fadePages.forEach((item) => {
 	    if (item.classList.contains('page-fade-in-out')) {

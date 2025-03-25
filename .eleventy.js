@@ -28,6 +28,19 @@ export default function (config) {
   config.addFilter("jsonify", function(data) {
     return JSON.stringify(data);
   });
+  config.addFilter('sortByDisplayOrder', function(collection) {
+    const sorted = collection.sort((a, b) => (Number(a.data.displayOrder) > Number(b.data.displayOrder) ? 1 : -1));
+    return sorted;
+  });
+  config.addFilter('getField', (data, field) => {
+    if (!field) return data;
+    return data.data[field];
+  })
+  config.addFilter('getPage', (data, pageString) => {
+    let page;
+    page = data.find(page => page.fileSlug == pageString);
+    return page;
+  })
 
   return {
     markdownTemplateEngine: "njk",

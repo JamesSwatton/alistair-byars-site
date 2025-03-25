@@ -11,16 +11,24 @@
     />
     <link href="/css/reset.css" rel="stylesheet"/>
     <link href="/css/styles.css" rel="stylesheet"/>
+    <script src="/js/custom-cursor.js"></script>
     <title>{{ title }}</title>
   </head>
   <body>
+    <div class="cursor"></div>
     <main>
-      <a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>
+
+      <div>
+	<a href="/" class="nav-item home"><img alt="" src="/assets/ab-icon-dark.svg" id="home-link"/></a>	
+      </div>
       {% include "partials/header.html" %}
+
       {% block worksList %}{% endblock %}
-      {% block gallery %}{% endblock %}
+
       {% block about %}{% endblock %}
-      
+
+      {% block gallery %}{% endblock %}
+
       {% include "partials/client-options-interface.html" %}
 
       </div>

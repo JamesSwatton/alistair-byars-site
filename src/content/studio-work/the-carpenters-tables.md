@@ -1,5 +1,6 @@
 ---
 title: The Carpenter's Tables
+displayOrder: 1
 images:
 - path: "/images/The Carpenter's Tables_01_Richard Gaston.jpg"
   credit: Richard Gaston

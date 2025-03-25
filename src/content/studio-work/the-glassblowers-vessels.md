@@ -1,5 +1,6 @@
 ---
 title: The Glassblower's Vessels
+displayOrder: 2
 images:
 - path: "/images/The Glassblower's Vessels_01_Gabriela Silveira.jpg"
   credit: Gabriela Silveira

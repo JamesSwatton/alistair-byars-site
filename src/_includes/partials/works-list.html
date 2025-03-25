@@ -1,5 +1,8 @@
+{% if description %}
+<p class="work-description">{{ description }}</p>
+{% endif %}
 <ul class="works-list">
-  {% for item in works %}
+  {% for item in works | sortByDisplayOrder %}
   <li><a href="{{ item.url }}" class="works-list-item">{{ item.data.title }}</a></li>
   {% endfor %}
 </ul>

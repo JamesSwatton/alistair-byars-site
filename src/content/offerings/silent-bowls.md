@@ -1,5 +1,6 @@
 ---
 title: Silent Bowls
+displayOrder: 1
 images:
 - path: "/images/Silent Bowls_01_Gabriela Silveira.jpg" 
   credit: Gabriela Silveira

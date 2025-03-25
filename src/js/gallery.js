@@ -21,30 +21,18 @@ let gap = 6;
 
 let resizing = false;
 
-// TODO: fix gallery resize issure for now reload page to
-// get correct widths and location
-
 window.onresize = () => {
-  window.location.reload();
   resizing = true;
-  // container.style.transition = "none";
-  // track.style.transition = "none";
-  // console.log('image: ', images[currentIndex]);
-  // track.innerHTML = "";
-  // track.appendChild(images[currentIndex].cloneNode(true));
-  // console.log(container.clientWidth);
-  // setTimeout(() => {
-  //   track.innerHTML = "";
-  //   images.forEach((img) => {
-  //     track.appendChild(img.cloneNode(true));
-  //   })
-    
-  // },50)
+  container.style.transition = "none";
+  track.style.transition = "none";
+  updateWidth();
+  updatePosition();
+  setTimeout(() => {
+    track.style.transition = "transform 1s ease-in-out";
+    container.style.transition = "transform 1s ease-in-out";
+    resizing = false;
+  }, 20)
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  window.addEventListener("resize", updateWidth);
-});
 
 window.addEventListener('load', function() {
   // Get widths from images once full page has loaded.
@@ -130,23 +118,22 @@ function updatePosition() {
   shift = -widths.slice(0, currentIndex).reduce((acc, w) => acc + w + gap, 0);
   console.log("shift: ", shift);
 
-  if (fadeImages) {
-    // Remove fade-out class for all images before udating position
-    images.forEach((img) => {
-      img.style.transition = "opacity 1.2s ease";
-      img.classList.remove('fade-out');
-    });
+  if (!resizing) {
+    if (fadeImages) {
+      // Remove fade-out class for all images before udating position
+      images.forEach((img) => {
+	img.style.transition = "opacity 1.2s ease";
+	img.classList.remove('fade-out');
+      });
 
-    // BUG!: if navigating back to the previous image fade is still applied
-    // from 0 to 1
-    
-    // Add fade-out to the current img as it transitions out of view
-    images[previousIndex].classList.add('fade-out');    
-  } else {
-    images.forEach((img) => {
-      img.classList.remove('fade-out');
-      img.style.transition = "opacity 0s ease";
-      img.style.opactiy = "1"});
+      // Add fade-out to the current img as it transitions out of view
+      images[previousIndex].classList.add('fade-out');    
+    } else {
+      images.forEach((img) => {
+	img.classList.remove('fade-out');
+	img.style.transition = "opacity 0s ease";
+	img.style.opactiy = "1"});
+    }    
   }
 
   // Apply the same transition timing to the width change

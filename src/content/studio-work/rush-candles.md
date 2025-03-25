@@ -1,5 +1,6 @@
 ---
 title: Rush Candles
+displayOrder: 4
 images:
 - path: "/images/Rush Candles_01_Paula Szturc.jpg" 
   credit: Paula Szturc

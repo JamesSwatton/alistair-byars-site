@@ -1,5 +1,6 @@
 ---
 title: Notebook
+displayOrder: 5
 images:
 - path: "/images/Notebook_01_Alistair Byars.jpeg"
   credit: Alistair Byars

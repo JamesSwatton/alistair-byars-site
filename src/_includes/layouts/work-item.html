@@ -1,6 +1,7 @@
 {% extends "layouts/base.html" %}
-{% set works = collections[page.url | getUrlPartial(0)] %}
-
+{% set work = page.url | getUrlPartial(0) %}
+{% set works = collections[work] %}
+{% set description = collections.all | getPage(work) | getField('description') %}
 
 {% block worksList %}
 <div class="works-list-wrapper page-fade page-fade-out">
