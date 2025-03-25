@@ -6,11 +6,16 @@
     <link rel="icon" href="/alistair-byars-site/assets/ab-icon-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link href="/alistair-byars-site/css/reset.css" rel="stylesheet">
     <link href="/alistair-byars-site/css/styles.css" rel="stylesheet">
-    <title></title>
+    <script src="/alistair-byars-site/js/custom-cursor.js"></script>
+    <title>Offerings</title>
   </head>
   <body>
+    <div class="cursor"></div>
     <main>
-      <a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>
+
+      <div>
+	<a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>	
+      </div>
       <header>
   <nav>
     <ul class="nav-list">
@@ -26,6 +31,7 @@
 </header>
 
 <script>
+  let pageUrl = "/offerings/";
 
   window.addEventListener('load', () => {
     const navItems = document.querySelectorAll('.nav-item');
@@ -39,7 +45,7 @@
     
     navItems.forEach((item) => {
       item.addEventListener('click', (e) => {
-	if (window.location.href !== 'http://localhost:8080/') {
+	if (pageUrl !== '/') {
 	  e.preventDefault();
 	  fadePages.forEach((item) => {
 	    if (item.classList.contains('page-fade-in-out')) {
@@ -59,9 +65,17 @@
 
 </script>
 
+
       
 <div class="works-list-wrapper page-fade page-fade-in-out">
-  <ul class="works-list">
+  
+<ul class="works-list">
+  
+  <li><a href="/alistair-byars-site/offerings/silent-bowls/" class="works-list-item">Silent Bowls</a></li>
+  
+  <li><a href="/alistair-byars-site/offerings/moonlight-low-table/" class="works-list-item">Moonlight Low Table</a></li>
+  
+  <li><a href="/alistair-byars-site/offerings/totem-candleholder/" class="works-list-item">Totem Candleholder</a></li>
   
   <li><a href="/alistair-byars-site/offerings/alba-stool/" class="works-list-item">Alba Stool</a></li>
   
@@ -69,21 +83,17 @@
   
   <li><a href="/alistair-byars-site/offerings/monad-II/" class="works-list-item">Monad II</a></li>
   
-  <li><a href="/alistair-byars-site/offerings/moonlight-low-table/" class="works-list-item">Moonlight Low Table</a></li>
-  
-  <li><a href="/alistair-byars-site/offerings/silent-bowls/" class="works-list-item">Silent Bowls</a></li>
-  
   <li><a href="/alistair-byars-site/offerings/the-eternal-opening/" class="works-list-item">The Eternal Opening</a></li>
-  
-  <li><a href="/alistair-byars-site/offerings/totem-candleholder/" class="works-list-item">Totem Candleholder</a></li>
   
 </ul>
   
 </div>
 
+
       
+
       
-      
+
       <div style="
 	    position: absolute;
 	    top: 0;

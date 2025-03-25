@@ -6,11 +6,16 @@
     <link rel="icon" href="/alistair-byars-site/assets/ab-icon-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link href="/alistair-byars-site/css/reset.css" rel="stylesheet">
     <link href="/alistair-byars-site/css/styles.css" rel="stylesheet">
+    <script src="/alistair-byars-site/js/custom-cursor.js"></script>
     <title>Alistair Byars</title>
   </head>
   <body>
+    <div class="cursor"></div>
     <main>
-      <a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>
+
+      <div>
+	<a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>	
+      </div>
       <header>
   <nav>
     <ul class="nav-list">
@@ -26,6 +31,7 @@
 </header>
 
 <script>
+  let pageUrl = "/";
 
   window.addEventListener('load', () => {
     const navItems = document.querySelectorAll('.nav-item');
@@ -39,7 +45,7 @@
     
     navItems.forEach((item) => {
       item.addEventListener('click', (e) => {
-	if (window.location.href !== 'http://localhost:8080/') {
+	if (pageUrl !== '/') {
 	  e.preventDefault();
 	  fadePages.forEach((item) => {
 	    if (item.classList.contains('page-fade-in-out')) {
@@ -59,10 +65,13 @@
 
 </script>
 
+
       
+
       
+
       
-      
+
       <div style="
 	    position: absolute;
 	    top: 0;

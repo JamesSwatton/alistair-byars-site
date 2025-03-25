@@ -6,11 +6,16 @@
     <link rel="icon" href="/alistair-byars-site/assets/ab-icon-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link href="/alistair-byars-site/css/reset.css" rel="stylesheet">
     <link href="/alistair-byars-site/css/styles.css" rel="stylesheet">
+    <script src="/alistair-byars-site/js/custom-cursor.js"></script>
     <title>About</title>
   </head>
   <body>
+    <div class="cursor"></div>
     <main>
-      <a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>
+
+      <div>
+	<a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>	
+      </div>
       <header>
   <nav>
     <ul class="nav-list">
@@ -26,6 +31,7 @@
 </header>
 
 <script>
+  let pageUrl = "/about/";
 
   window.addEventListener('load', () => {
     const navItems = document.querySelectorAll('.nav-item');
@@ -39,7 +45,7 @@
     
     navItems.forEach((item) => {
       item.addEventListener('click', (e) => {
-	if (window.location.href !== 'http://localhost:8080/') {
+	if (pageUrl !== '/') {
 	  e.preventDefault();
 	  fadePages.forEach((item) => {
 	    if (item.classList.contains('page-fade-in-out')) {
@@ -59,13 +65,16 @@
 
 </script>
 
+
       
-      
+
       
   <article class="about-wrapper page-fade page-fade-in-out">
-    <div>
+    <div class="bio">
       <h1>Biography</h1>
-      <p>Alistair is a sculptor &amp; furniture maker. Above all else, the driving inspiration for Alistair’s work is his love for music and soundscapes. Sound acts as a catalyst for the configuration of abstract environments in the mind. Over time, these environments set the scene in which the shapes and volumes of his work are realised - almost as if props from a film that no one else can see.\nAlistair’s work often includes hand applied materials/finishes, that show the markings of a maker and document a labour of love, across many months. Texture is also a key ingredient - rough/smooth, natural/artificial - that invites the onlooker in, to study the work with both eye and hand.\nBorn in 1997, Alistair works and lives between Edinburgh and Glasgow, the city he grew up in. He completed his Master’s, with First Class Honours, in Product Design Engineering from Glasgow University &amp; School of Art in 2020. Alistair has previously interned with London based design studio Faye Toogood and is currently working with Groves-Raines Architects Studios, Edinburgh.</p>
+      <p>Alistair is a sculptor &amp; furniture maker. Above all else, the driving inspiration for Alistair’s work is his love for music and soundscapes. Sound acts as a catalyst for the configuration of abstract environments in the mind. Over time, these environments set the scene in which the shapes and volumes of his work are realised - almost as if props from a film that no one else can see.</p>
+<p>Alistair’s work often includes hand applied materials/finishes, that show the markings of a maker and document a labour of love, across many months. Texture is also a key ingredient - rough/smooth, natural/artificial - that invites the onlooker in, to study the work with both eye and hand.</p>
+<p>Born in 1997, Alistair works and lives between Edinburgh and Glasgow, the city he grew up in. He completed his Master’s, with First Class Honours, in Product Design Engineering from Glasgow University &amp; School of Art in 2020. Alistair has previously interned with London based design studio Faye Toogood and is currently working with Groves-Raines Architects Studios, Edinburgh.</p>
 
     </div>
 
@@ -102,7 +111,7 @@
       <div>
 	<h1>Press</h1>
 	
-	<p>2023 / The Financial Times, Alba Stool featured in &#92;&quot;The house that Blue Mountain School built&#92;&quot;</p>
+	<p>2023 / The Financial Times, Alba Stool featured in &quot;The house that Blue Mountain School built&quot;</p>
 	
 	<p>2022 / Slancha, Funiture Inspired by Sound with Alistair Byars</p>
 	
@@ -124,7 +133,9 @@
   </article>
 
 
+
       
+
       <div style="
 	    position: absolute;
 	    top: 0;

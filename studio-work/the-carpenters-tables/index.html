@@ -6,11 +6,16 @@
     <link rel="icon" href="/alistair-byars-site/assets/ab-icon-dark.svg" type="image/x-icon" media="(prefers-color-scheme: light)">
     <link href="/alistair-byars-site/css/reset.css" rel="stylesheet">
     <link href="/alistair-byars-site/css/styles.css" rel="stylesheet">
+    <script src="/alistair-byars-site/js/custom-cursor.js"></script>
     <title>The Carpenter&#39;s Tables</title>
   </head>
   <body>
+    <div class="cursor"></div>
     <main>
-      <a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>
+
+      <div>
+	<a href="/alistair-byars-site/" class="nav-item home"><img alt="" src="/alistair-byars-site/assets/ab-icon-dark.svg" id="home-link"></a>	
+      </div>
       <header>
   <nav>
     <ul class="nav-list">
@@ -26,6 +31,7 @@
 </header>
 
 <script>
+  let pageUrl = "/studio-work/the-carpenters-tables/";
 
   window.addEventListener('load', () => {
     const navItems = document.querySelectorAll('.nav-item');
@@ -39,7 +45,7 @@
     
     navItems.forEach((item) => {
       item.addEventListener('click', (e) => {
-	if (window.location.href !== 'http://localhost:8080/') {
+	if (pageUrl !== '/') {
 	  e.preventDefault();
 	  fadePages.forEach((item) => {
 	    if (item.classList.contains('page-fade-in-out')) {
@@ -59,13 +65,13 @@
 
 </script>
 
+
       
 <div class="works-list-wrapper page-fade page-fade-out">
-  <ul class="works-list">
   
-  <li><a href="/alistair-byars-site/studio-work/notebook/" class="works-list-item">Notebook</a></li>
-  
-  <li><a href="/alistair-byars-site/studio-work/rush-candles/" class="works-list-item">Rush Candles</a></li>
+<p class="work-description">A selection of projects I have lead during my time at Groves-Raines Architects Studios (GRAS), Edinburgh</p>
+
+<ul class="works-list">
   
   <li><a href="/alistair-byars-site/studio-work/the-carpenters-tables/" class="works-list-item">The Carpenter&#39;s Tables</a></li>
   
@@ -73,13 +79,20 @@
   
   <li><a href="/alistair-byars-site/studio-work/the-stonemasons-objects/" class="works-list-item">The Stonemason&#39;s Objects</a></li>
   
+  <li><a href="/alistair-byars-site/studio-work/rush-candles/" class="works-list-item">Rush Candles</a></li>
+  
+  <li><a href="/alistair-byars-site/studio-work/notebook/" class="works-list-item">Notebook</a></li>
+  
 </ul>
 
 </div>
 
+
+      
+
       
 <div class="gallery-wrapper page-fade page-fade-out">
-    <div id="gallery-container">
+  <div id="gallery-container">
     <div id="track">
       
       <img alt="" src="/alistair-byars-site/images/The Carpenter&#39;s Tables_01_Richard Gaston.jpg" class="track-img">
@@ -116,8 +129,7 @@
 <script src="/alistair-byars-site/js/gallery.js"></script>
 
 
-      
-      
+
       <div style="
 	    position: absolute;
 	    top: 0;
